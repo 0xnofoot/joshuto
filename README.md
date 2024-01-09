@@ -1,4 +1,6 @@
-the joshuto config
+the joshuto config for arch linux (or another linux)
+
+TODO: some file can't preview, *.lua
 
 install these for preview:
 install exa
