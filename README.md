@@ -1,4 +1,4 @@
-the joshuto config
+the joshuto config for MacOS
 
 install these for preview:
 install exa
