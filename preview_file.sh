@@ -177,6 +177,19 @@ handle_mime() {
             exit 1 ;;
 
             ## Image
+        image/png | image/jpeg)
+            file_name="$(exiftool "$FILE_PATH" | grep '^File Name')"
+            directory="$(exiftool "$FILE_PATH" | grep '^Directory')"
+			file_size="$(exiftool "$FILE_PATH" | grep '^File Size')"
+			file_type="$(exiftool "$FILE_PATH" | grep '^File Type  ')"
+            image_size="$(exiftool "$FILE_PATH" | grep '^Image Size')"
+            echo "$file_name"
+            echo "$directory"
+            echo "$file_size"
+            echo "$file_type"
+            echo "$image_size"
+            exit 4 ;;
+
         image/*)
             ## Preview as text conversion
             exiftool "${FILE_PATH}" && exit 0
