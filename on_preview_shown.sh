@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 FILE_PATH="$1"			# Full path of the previewed file
-PREVIEW_X_COORD="$2"		# x coordinate of upper left cell of preview area
-PREVIEW_Y_COORD="$3"		# y coordinate of upper left cell of preview area
+PREVIEW_X_COORD="$2"	# x coordinate of upper left cell of preview area
+PREVIEW_Y_COORD="$3"	# y coordinate of upper left cell of preview area
 PREVIEW_WIDTH="$4"		# Width of the preview pane (number of fitting characters)
 PREVIEW_HEIGHT="$5"		# Height of the preview pane (number of fitting characters)
 
@@ -25,7 +25,14 @@ function video {
     image "${TMP_FILE}"
 }
 
+PREVIEW_Y_COORD_OFFSET=5		# y coordinate offset for combine with text, denpend on the text lines in preview_file.sh
+
 case "$mimetype" in
+    image/png | image/jpeg)
+        PREVIEW_Y_COORD=$(( PREVIEW_Y_COORD + PREVIEW_Y_COORD_OFFSET ))
+        PREVIEW_HEIGHT=$(( PREVIEW_HEIGHT - PREVIEW_Y_COORD_OFFSET ))
+        image "$FILE_PATH"
+        ;;
     image/*)
         image "${FILE_PATH}"
         ;;
