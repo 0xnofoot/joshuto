@@ -49,7 +49,7 @@ keymap = [
 	{ keys = [ "l" ],		command = "open" },
 	{ keys = [ "g", "g" ],		command = "cursor_move_home" },
 	{ keys = [ "G" ],		command = "cursor_move_end" },
-	{ keys = [ "r" ],		command = "open_with" },
+	{ keys = [ "o" ],		command = "open_with" },
 
 	{ keys = [ "c", "d" ],		command = ":cd " },
 
